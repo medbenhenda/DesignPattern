@@ -1,0 +1,29 @@
+{
+  "name": "designmodule/factory",
+  "description": "Design patterns examples code",
+  "keywords": ["design pattern", "example", "code"],
+  "homepage": "http://github.com/",
+  "type": "library",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Mohamed Ben Henda",
+      "email": "benhenda.med@gmail.com",
+      "homepage": "https://github.com/medbenhenda"
+    }
+  ],
+  "require": {
+    "php": ">=5.3.0",
+    "maximebf/debugbar": "1.*",
+    "twig/twig": "1.*",
+    "filp/whoops": "1.*"
+  },
+  "autoload": {
+    "psr-4": {
+      "Application\\": "src/Application",
+      "Design\\": "src/DesignModule",
+      "Utils\\": "src/Utils",
+      "Common\\": "libs/Common"
+    }
+  }
+}
