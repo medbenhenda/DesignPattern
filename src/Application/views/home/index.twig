@@ -1,21 +1,44 @@
 {% extends "_templates/base.twig" %}
 {% block content %}
-    <div class="jumbotron">
-        <div class="container">
-            <h2>Design pattern</h2>
+    <div class="row">
+
+        <div class="col-lg-12">
+            <h1 class="page-header">PHP Design pattern</h1>
         </div>
+
+        <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+            <a class="thumbnail" href="/index.php/factory">
+                Factory (abstract)
+            </a>
+        </div>
+        <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+            <a class="thumbnail" href="#">
+                Factory Method
+            </a>
+        </div>
+        <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+            <a class="thumbnail" href="#">
+                Registry
+            </a>
+        </div>
+        <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+            <a class="thumbnail" href="/index.php/observer">
+                Observer
+            </a>
+        </div>
+        <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+            <a class="thumbnail" href="/index.php/mediator">
+                Mediator
+            </a>
+        </div>
+
     </div>
 
     <h1>Hello there!</h1>
     <ul>
-        <li><a href="/index.php/factory">Factory (abstract)</a></li>
-        <li><a href="/index.php/factory/method">Factory Method</a></li>
-        <li><a href="/index.php/registry">Registry</a></li>
         <li><a href="/index.php/visitor">Visitor</a></li>
         <li><a href="/index.php/template">Template</a></li>
         <li><a href="/index.php/state">State</a></li>
-        <li><a href="/index.php/observer">Observer</a></li>
-        <li><a href="/index.php/mediator">Mediator</a></li>
         <li><a href="/index.php/iterator">Iterator</a></li>
         <li><a href="/index.php/interpreter">Interpreter</a></li>
         <li><a href="/index.php/responsibility">Chain of Responsibility</a></li>

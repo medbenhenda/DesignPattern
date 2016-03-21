@@ -18,20 +18,3 @@ $GLOBALS['config'] = array(
         'file_type' => '.twig'
     )
 );
-
-//Bundles - Seperated from main config as I can see this getting big
-$GLOBALS['bundles'] = array(
-    'js' => array( // JS bundles
-        'main' => array(
-            '/assets/js/jquery-1.11.0.min.js',
-            '/assets/js/bootstrap.min.js',
-        )
-    ),
-    'css' => array( // CSS bundles
-        'main' => array(
-            '/assets/css/bootstrap.min.css',
-            '/assets/css/bootstrap-theme.min.css',
-            '/assets/css/app.css',
-        )
-    )
-);
