@@ -7,7 +7,6 @@
  */
 namespace Application\Controller;
 
-use Common\Filebundler;
 use DebugBar\StandardDebugBar;
 use \Utils\Config;
 
@@ -16,7 +15,6 @@ use \Utils\Config;
  */
 class BaseController
 {
-
     /**
      * @var StandardDebugBar
      */
@@ -33,7 +31,7 @@ class BaseController
     {
         //Load the debug bar (via composer)
         $this->debugbar = new StandardDebugBar();
-        $this->debugbarRenderer = $this->debugbar->getJavascriptRenderer();
+        $this->debugbarRenderer = $this->debugbar->getJavascriptRenderer('phpdebugbar');
 
         //For testing
         $this->debugbar['messages']->info('Parent controller loaded');
@@ -63,9 +61,7 @@ class BaseController
             }
             )
         );
-
         //render a view and pass data to be rendered
         echo $twig->render($view.Config::get("views/file_type"), $data_array);
     }
-
 }

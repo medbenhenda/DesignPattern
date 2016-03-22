@@ -13,6 +13,14 @@
 define("ENVIRONMENT", 'dev');
 
 $GLOBALS['config'] = array(
+    //Database to connect to
+    'database' => array(
+        'host' => '127.0.0.1',
+        'db' => 'md_design_pattern',
+        'username' => 'root',
+        'password' => '',
+        'driver' => 'pdo_mysql'
+    ),
     'views' => array (
         'path' => '../src/Application/views/',
         'file_type' => '.twig'

@@ -12,24 +12,4 @@ class HomeController extends BaseController
     public function indexAction() {
         $this->render('home/index');
     }
-
-    public function redirect(){
-
-        if(isPostBack()){
-            switch(Input::get('type')){
-                case 'home':
-                    Redirect::to('/');
-                case '401':
-                    Redirect::to(401);
-                case '404':
-                    Redirect::to(404);
-                case '500':
-                    Redirect::to(500);
-            }
-
-        } else {
-            $this->render('home/redirect');
-        }
-    }
-
 }
