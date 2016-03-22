@@ -2,7 +2,27 @@
 {% block content %}
     <div class="row">
         <div class="col-lg-12">
-            <h1 class="page-header">PHP Design pattern : Factory</h1>
+            <h1 class="page-header">{{ entity.title }}</h1>
+            <div>{{ entity.body|raw }}</div>
+            <div>{{ entity.notes|raw }}</div>
+            <div>
+                <h3>AbstractBookFactory.php</h3>
+                <div id="copytext" class="highlight">
+<pre id="clipboard_pre">
+    <code class="html">
+abstract class AbstractBookFactory
+{
+    abstract function makePHPBook();
+
+    abstract function makeMySQLBook();
+}
+    </code>
+</pre>
+                    <button id="my-button_textarea" class="copy-button clip_button" data-clipboard-target="clipboard_pre">Copy to Clipboard</button>
+                </div>
+            </div>
+
+
         </div>
     </div>
 {% endblock %}

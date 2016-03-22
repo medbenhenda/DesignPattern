@@ -10,7 +10,6 @@
  * 'dev' shows all errors & debugBar
  * 'prod' logs errors to log
  */
-define("ENVIRONMENT", 'dev');
 
 $GLOBALS['config'] = array(
     //Database to connect to

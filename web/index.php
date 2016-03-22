@@ -5,17 +5,17 @@
  * Date: 18/03/2016
  * Time: 22:51
  */
-$srcDir = __DIR__.'/../src/';
+define("ENVIRONMENT", 'dev');
 error_reporting(error_reporting() & ~E_USER_DEPRECATED);
+
+require 'bootstrap.php';
 require __DIR__.'./config.php';
-require __DIR__.'/../vendor/autoload.php';
 $router = new \Utils\Router();
 $router->splitUrl();
 $controllerName = '\Application\Controller\\'.ucfirst($router->getController()).'Controller';
 $actionName = $router->getAction().'Action';
 
 $oController = new $controllerName();
-
 if(method_exists($oController, $actionName)){
     call_user_func_array(array($oController, $actionName), $router->getParams());
 } else {

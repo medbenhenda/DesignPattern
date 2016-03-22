@@ -25,7 +25,8 @@
       "Application\\": "src/Application",
       "Design\\": "src/DesignModule",
       "Utils\\": "src/Utils",
-      "Common\\": "libs/Common"
+      "Common\\": "libs/Common",
+      "DB\\": "libs/DB"
     }
   }
 }

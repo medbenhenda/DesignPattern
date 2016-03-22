@@ -6,13 +6,10 @@
  * Time: 01:08
  */
 
-namespace Common\DB;
+namespace DB;
 
-use Doctrine\Common\ClassLoader,
-    Doctrine\ORM\Configuration,
-    Doctrine\ORM\EntityManager,
-    Doctrine\Common\Cache\ArrayCache,
-    Doctrine\DBAL\Logging\EchoSQLLogger;
+use Doctrine\ORM\Tools\Setup;
+use Doctrine\ORM\EntityManager;
 use Utils\Config;
 
 
@@ -22,35 +19,11 @@ class Doctrine
 
     public function __construct()
     {
-        $doctrineClassLoader = new ClassLoader('Common\DB\Doctrine',  '/');
-        $doctrineClassLoader->register();
-        $entitiesClassLoader = new ClassLoader('Application\Models\Entity', '/');
-        $entitiesClassLoader->register();
-        $proxiesClassLoader = new ClassLoader('Application\Models\Entity\Proxy', '/');
-        $proxiesClassLoader->register();
+        $paths = array("src/Application/Models/Entity");
+        $isDevMode = false;
 
-        // Set up caches
-        $config = new Configuration;
-        $cache = new ArrayCache;
-        $config->setMetadataCacheImpl($cache);
-        $driverImpl = $config->newDefaultAnnotationDriver(array('..\src\Application\Models\Entity'));
-        $config->setMetadataDriverImpl($driverImpl);
-        $config->setQueryCacheImpl($cache);
-
-        $config->setQueryCacheImpl($cache);
-
-        // Proxy configuration
-        $config->setProxyDir('/proxies');
-        $config->setProxyNamespace('Proxies');
-
-        // Set up logger
-        $logger = new EchoSQLLogger;
-        //$config->setSQLLogger($logger);
-
-        $config->setAutoGenerateProxyClasses( TRUE );
-
-        // Database connection information
-        $connectionOptions = array(
+        // the connection configuration
+        $dbParams = array(
             'dbname' => Config::get('database/db'),
             'user' => Config::get('database/username'),
             'password' => Config::get('database/password'),
@@ -58,7 +31,9 @@ class Doctrine
             'driver' => Config::get('database/driver'),
         );
 
-        // Create EntityManager
-        $this->em = EntityManager::create($connectionOptions, $config);
+        $config = Setup::createAnnotationMetadataConfiguration($paths, $isDevMode, null, null, false);
+
+        $this->em = EntityManager::create($dbParams, $config);
+
     }
 }

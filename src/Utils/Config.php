@@ -14,16 +14,18 @@ class Config
     public static function get($path = null)
     {
         if ($path) {
-            $config = $GLOBALS['config'];
+            $configs = $GLOBALS['config'];
             $path = explode("/", $path);
 
             foreach ($path as $bit) {
-                if (isset($config[$bit])) {
-                    $config = $config[$bit];
+                if (is_array($configs)) {
+                    if (isset($configs[$bit])) {
+                        $configs = $configs[$bit];
+                    }
                 }
             }
 
-            return $config;
+            return $configs;
         }
 
         return false;

@@ -58,7 +58,7 @@ class Router
                 $this->controller = (isset($url[1]) ? $url[1] : 'Home');
                 $this->action = (isset($url[2]) ? $url[2] : 'index'); //Default action to index method
                 $num = 3;
-            } elseif($url[0]) {
+            } elseif ($url[0]) {
                 $this->controller = (isset($url[0]) ? $url[0] : 'Home');
                 $this->action = (isset($url[1]) ? $url[1] : 'index'); //Default action to index method
                 $num = 2;

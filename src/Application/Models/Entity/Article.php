@@ -38,6 +38,13 @@ class Article
     protected $body;
 
     /**
+     * @var text $notes
+     *
+     * @ORM\Column(type="text", nullable=true)
+     */
+    protected $notes;
+
+    /**
      * @var datetime $createdAt
      *
      * @ORM\Column(type="datetime", name="created_at")
@@ -138,5 +145,29 @@ class Article
     public function getCreatedAt()
     {
         return $this->createdAt;
+    }
+
+    /**
+     * Set notes
+     *
+     * @param string $notes
+     *
+     * @return Article
+     */
+    public function setNotes($notes)
+    {
+        $this->notes = $notes;
+
+        return $this;
+    }
+
+    /**
+     * Get notes
+     *
+     * @return string
+     */
+    public function getNotes()
+    {
+        return $this->notes;
     }
 }
